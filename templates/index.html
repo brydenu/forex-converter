@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h1>Forex Converter</h1>
+    </div>
+    <div>
+        <form action="/convert">
+
+            <div class="row p-3">
+
+                <div class="col-4">
+                    <label for="from">Converting from: </label>
+                    <input type="text" name="from">
+                </div>
+
+                <div class="col-4">
+                    <label for="to">Converting to: </label>
+                    <input type="text" name="to">
+                </div>
+
+                <div class="col-4">
+                    <label for="amount">Amount: </label>
+                    <input type="text" name="amount">
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <button class="btn btn-primary btn-lg">Convert</button>
+            </div>
+
+
+        </form>
+    </div>
+
+    {% for msg in get_flashed_messages() %}
+    <div class="alert alert-danger m-2" role="alert">
+        {{ msg }}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
